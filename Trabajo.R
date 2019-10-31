@@ -1,34 +1,42 @@
 ---
-title: "Mi título"
-author: "Nagore Urdangarin y Claudia Fanlo"
-date: '`r format(Sys.Date(), "%B %d, %Y")`'
-output:
-  html_document:
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
-    theme: united
-    highlight: tango
---
+title: "Analisis del viento y de la temperatura en Nueva York"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
 
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r setup, include=FALSE}
+library(flexdashboard)
 ```
 
-## Including Plots
+Column {data-width=650}
+-----------------------------------------------------------------------
 
-You can also embed plots, for example:
+### El viento en Nueva York
+
+```{r viento, echo=FALSE}
+hist(airquality$Wind, ylab = "Distribución", xlab = "Viento", main = "Histograma del viento en Nueva York", col= "Blue")
+```
+
+### La temperatura en Nueva York
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+hist(airquality$Temp, ylab = "Distribución", xlab = "Temperatura", main = "Histograma de la temperatura de Nueva York", col= "blue")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Resumen del viento en Nueva York
+
+```{r wind}
+summary(airquality$Wind)
+```
+
+
+### Resumen de la temperatura en Nueva York
+
+```{r temp}
+summary(airquality$Temp)
+```
