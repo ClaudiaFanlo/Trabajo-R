@@ -1,0 +1,42 @@
+---
+title: "ANALISIS DEL VIENTO Y TEMPERATURA EN NUEVA YORK"
+author: "Nagore Urdangarin y Claudia Fanlo"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    theme: united
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduccion
+
+Hemos hecho un estudio de las variables que afectan el tiempo en Nueva York a través de los recursos proporcionados por R en el archivo *Airquality*.
+
+
+En la siguiente tabla se muestra algunas de las diferentes observaciones que se analizarán en los **gráficos**:
+
+```{r airquality, echo=FALSE}
+library(knitr)
+kable(head(airquality))
+```
+
+## Histograma
+
+
+```{r airquality2, echo=FALSE}
+hist(airquality$Temp, freq = T, main = 'Temperatura', xlab = 'Temperatura', ylab = 'Frecuencia', col= 'pink')
+
+```
+
+Las predicciones para las próximos días: 
+[Pronóstico](https://www.eltiempo.es/nueva-york.html)
+
+
